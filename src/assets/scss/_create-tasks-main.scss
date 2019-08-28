@@ -73,6 +73,7 @@ $muted: #D3D3D3;
         border-radius: 10px;
         outline: none;
         padding: 15px;
+        cursor: pointer;
         &:disabled {
           background: $muted;
         }
