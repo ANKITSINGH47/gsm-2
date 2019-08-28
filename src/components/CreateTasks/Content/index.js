@@ -28,9 +28,11 @@ class CreateTaskContent extends React.Component {
                 }
             }).then((res) => res.json())
                 .then((response) => {
-                    this.setState({
-                        locations: response.map((location) => location.address)
-                    })
+                    if (response.length !== this.state.locations.length) {
+                        this.setState({
+                            locations: response.map((location) => location.address)
+                        })
+                    }
                 })
                 .catch((err) => console.log('err', err));
 
