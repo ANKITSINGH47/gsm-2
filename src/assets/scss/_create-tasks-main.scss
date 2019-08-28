@@ -1,15 +1,83 @@
+@mixin responsive {
+  @media (max-width: 900px) { @content; }
+}
+$mainColor: #2980b9;
+$muted: #D3D3D3;
+
 .create-tasks {
   &-main {
     width: 100%; height: 100%; display: flex;
-    @media (max-width: 768px) {
+    @include responsive {
       flex-direction: column;
     }
   }
   &-section-large {
     flex: 1 0 66.66%;
+    position: relative;
+    min-height: 600px;
+  }
+  &-content-map {
+   > DIV > DIV {
+     border-top-left-radius: 15px; border-bottom-left-radius: 15px;
+     @include responsive {
+       border-radius: 15px;
+     }
+   }
   }
   &-section-small {
     flex: 0 1 33.33%;
+    &-header {
+      min-height: 200px;
+      background: $mainColor;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 36px;
+      letter-spacing: 0.5px;
+      border-top-right-radius: 15px;
+      color: #FFF;
+      font-weight: bold;
+      text-transform: uppercase;
+      @include responsive {
+        display: none;
+      }
+    }
+    &-input {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      @include responsive {
+        padding: 10px 0;
+      }
+      INPUT {
+        outline: none;
+        height: 40px;
+        padding: 10px;
+        font-size: 18px;
+        border-radius: 10px;
+        border: 1px solid $muted;
+        width: 100%;
+      }
+      BUTTON {
+        background: $mainColor;
+        color: #FFF;
+        max-width: 200px;
+        margin-top: 20px;
+        height: 50px;
+        font-size: 16px;
+        font-weight: bold;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        border: none;
+        border-radius: 10px;
+        outline: none;
+        padding: 15px;
+        &:disabled {
+          background: $muted;
+        }
+      }
+    }
     @media (max-width: 768px) {
       margin-top: 20px;
     }

@@ -1,8 +1,12 @@
 import React from "react";
+import CreateTasksContentMap from "./Map";
 
-class CreateTaskMap extends React.Component {
+class CreateTaskContent extends React.Component {
     constructor(props) {
         super(props);
+        this.state = {
+            locations: [],
+        }
     }
 
     componentDidMount () {
@@ -24,20 +28,21 @@ class CreateTaskMap extends React.Component {
                 }
             }).then((res) => res.json())
                 .then((response) => {
-                    console.log('response', response);
+                    this.setState({
+                        locations: response.map((location) => location.address)
+                    })
                 })
                 .catch((err) => console.log('err', err));
 
             // Every 5 sec fetch again
             setTimeout(this.startPollingForList, 5000)
         };
-
         return (
             <div className="create-tasks-section-large">
-                map here
+                <CreateTasksContentMap locations={this.state.locations} />
             </div>
         )
     }
 }
 
-export default CreateTaskMap;
+export default CreateTaskContent;

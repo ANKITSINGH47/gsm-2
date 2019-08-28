@@ -1,6 +1,6 @@
 import React from "react";
 import CreateTaskActions from "./Actions";
-import CreateTaskMap from "./Map";
+import CreateTaskContent from "./Content";
 
 class CreateTasks extends React.Component {
     constructor(props) {
@@ -32,7 +32,6 @@ class CreateTasks extends React.Component {
                 }
             }).then((res) => res.json())
                 .then((response) => {
-                    console.log('response', response);
                     if (response && response.account) {
                         this.setState({
                             accountId: response.account,
@@ -49,7 +48,7 @@ class CreateTasks extends React.Component {
             <div className="create-tasks-main">
                 {accountId ? (
                     <React.Fragment>
-                        <CreateTaskMap token={token} accountId={accountId} />
+                        <CreateTaskContent token={token} accountId={accountId} />
                         <CreateTaskActions token={token} accountId={accountId}  />
                     </React.Fragment>
                 ) : (
