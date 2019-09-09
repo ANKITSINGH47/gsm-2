@@ -88,5 +88,5 @@ class CreateTasksContentMap extends React.Component {
 }
 
 export default GoogleApiWrapper({
-    apiKey: ('AIzaSyDrHf4fp4diCzVsKZJwxBabRDPEFtdbyag'),
+    apiKey: ('XXXXXXXXXXXXXXXX'),
 })(CreateTasksContentMap);
