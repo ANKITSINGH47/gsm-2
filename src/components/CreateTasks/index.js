@@ -20,8 +20,8 @@ class CreateTasks extends React.Component {
         this.getAccountInfo = () => {
             // Just for testing purposes obviously. Otherwise should keep this delicate info hidden in .env files and out of client side.
             const userInfo = {
-                username: 'kaidohus@gmail.com',
-                password: 'testtest1',
+                username: 'XXXXXX',
+                password: 'XXXXXX',
             };
             // get auth token
             fetch('https://gsmtasks.com/api/authenticate/', {
